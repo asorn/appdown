@@ -1,0 +1,19 @@
+@charset "utf-8";
+*{box-sizing: border-box;}
+body,html{height: 100%; overflow: hidden; background: linear-gradient(to right bottom,#5e8ffe,#9123e7);}
+body{display: flex; justify-content: center; align-items: center;}
+.logo{display: block; width: 225px; margin: 0 auto;}
+.download{padding: 30px 0 50px 0;}
+.download a{display: block; width: 171px; height: 43px; background: #fff url(../img/download-android.png) no-repeat center; background-size: 123px auto; border-radius: 999px; margin: auto;}
+.download a.android{background-image: url(../img/download-android.png);}
+.download a.ios{background-image: url(../img/download-ios.png);}
+.bottom-img{width:90%; margin: auto; position: relative;}
+.bottom-img .bg,.bottom-img .phone{width: 100%;}
+.bottom-img .phone{position: absolute; z-index: 1; left: 0; top:0; animation: phoneAni 1s linear infinite alternate;}
+@keyframes phoneAni{
+	100%{
+		top: 10px;
+	}
+}
+.open-tips{position: fixed; z-index:9; left: 0; right: 0; top:0; bottom: 0; background: rgba(0,0,0,.8); overflow: hidden; display: none;}
+.open-tips img{width: 300px; float: right; margin-right: 20px;}

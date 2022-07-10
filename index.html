@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta charset="UTF-8">
+<title>APP分享下载页面</title>
+<link href="css/base.css" rel="stylesheet">
+<link href="css/phone.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="open-tips">
+	<img src="img/open-tips.png">
+</div>
+<center>
+	<img class="logo" src="img/logo-vip.png">
+	<div class="download">
+		<a class="android"></a>
+		<a class="ios"></a>
+	</div>
+	<div class="bottom-img">
+		<img class="phone" src="img/download-img-phone.png">
+		<img class="bg" src="img/download-img.png">
+	</div>
+</center>
+
+<script type="text/javascript">
+
+//安卓下载地址
+var androidUrl = '#';
+//IOS下载地址
+var iosUrl = '#';
+var openTips = document.querySelector('.open-tips');
+var androidBtn = document.querySelector(".download .android");
+var IOSBtn = document.querySelector(".download .ios");
+//显示按钮
+checkos();
+//按钮点击事件
+androidBtn.addEventListener('touchstart',function(){
+	if(isWeChat()){
+		openTips.style.display = 'block';
+	}else{
+		location.href = androidUrl;
+	}
+})
+IOSBtn.addEventListener('touchstart',function(){
+	if(isWeChat()){
+		openTips.style.display = 'block';
+	}else{
+		location.href = iosUrl;
+	}
+})
+
+function checkos(){
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	if(isAndroid){
+		IOSBtn.style.display = "none";
+		return;
+	}else if(isiOS){
+		androidBtn.style.display = "none";
+		return;
+	}else{
+		return;
+	}
+}
+
+function isWeChat(){
+	var ua = window.navigator.userAgent.toLowerCase();
+	if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		return true;
+	}else{
+		return false;
+	}
+}
+</script>
+</body>
+</html>
